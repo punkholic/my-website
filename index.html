@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="myFunction()">
+    <span id="runText">Mero nam niraj ho</span>
+</body>
+<script>
+
+let component = document.querySelector("#runText");
+let text = component.textContent;
+let someValue = 0
+component.textContent = "";
+let isReverse = false
+
+myFunction = () => {
+    setInterval(() => {
+        if(!isReverse){
+            someValue = someValue+1;
+            component.textContent = text.substring(0,someValue % (text.length+1))
+        }else{
+            someValue = someValue+1;
+            component.textContent = text.substring(0, (text.length -1) - someValue % text.length  )
+        }
+        if(someValue % text.length   == 0){
+            someValue = 0;
+            isReverse = !isReverse;
+            if(!isReverse){
+                component.textContent = "";
+            }
+        }
+    }, 100);
+}   
+
+
+
+
+
+
+</script>
+</html>
